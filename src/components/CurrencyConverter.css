@@ -1,4 +1,5 @@
-.container {
+/* Styl dla kontenera CurrencyConverter */
+.currency-converter-container {
     max-width: 520px;
     margin: 0 auto;
     padding: 20px;
@@ -6,26 +7,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-h1 {
+/* Styl dla tytułu h1 w CurrencyConverter */
+.currency-converter-container h1 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-form {
+/* Styl dla formularza w CurrencyConverter */
+.currency-converter-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input[type="number"],
-select {
+/* Styl dla inputów typu number i select w CurrencyConverter */
+.currency-converter-container input[type="number"],
+.currency-converter-container select {
     width: 100%;
     max-width: 300px;
-    height: 40px; /* Added height property */
+    height: 40px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -33,7 +38,8 @@ select {
     margin-bottom: 10px;
 }
 
-button {
+/* Styl dla przycisku w CurrencyConverter */
+.currency-converter-container button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -45,23 +51,27 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+/* Styl dla hovera na przycisku w CurrencyConverter */
+.currency-converter-container button:hover {
     background-color: #0056b3;
 }
 
-p {
+/* Styl dla paragrafu w CurrencyConverter */
+.currency-converter-container p {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.logo-container {
+/* Styl dla kontenera logo w CurrencyConverter */
+.currency-converter-container .logo-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.logo {
+/* Styl dla logo w CurrencyConverter */
+.currency-converter-container .logo {
     width: 200px;
     height: 200px;
 }

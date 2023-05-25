@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { getExchangeRate } from '../services/currencyService';
 import Loader from '../components/Loader';
-import '../styles/CurrencyConverter.css';
-
+import '../components/CurrencyConverter.css';
 
 const CurrencyConverter = () => {
     const [amount, setAmount] = useState('');
@@ -12,6 +11,11 @@ const CurrencyConverter = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!amount) {
+            return;
+        }
+
         setIsLoading(true);
 
         try {
@@ -26,12 +30,12 @@ const CurrencyConverter = () => {
     };
 
     return (
-        <div className="container">
-            <h1 className="mt-4">Currency Converter</h1>
+        <div className="currency-converter-container">
+            <h1>Currency Converter</h1>
             <div className="logo-container">
                 <img src={process.env.PUBLIC_URL + '/logo1.png'} alt="Logo" className="logo" />
             </div>
-            <form onSubmit={handleSubmit} className="mt-4">
+            <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-md-6">
                         <input
@@ -42,6 +46,7 @@ const CurrencyConverter = () => {
                             onChange={(e) => setAmount(e.target.value)}
                             className="form-control"
                             placeholder="Enter amount"
+                            required
                         />
                     </div>
                     <div className="col-md-4">
@@ -64,9 +69,7 @@ const CurrencyConverter = () => {
             </form>
             {isLoading && <Loader />}
             {convertedAmount !== null && (
-                <p className="mt-4">
-                    Converted amount: {convertedAmount} PLN
-                </p>
+                <p className="converted-amount">Converted amount: {convertedAmount} PLN</p>
             )}
         </div>
     );
