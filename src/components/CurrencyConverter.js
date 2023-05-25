@@ -3,6 +3,10 @@ import { getExchangeRate } from '../services/currencyService';
 import Loader from '../components/Loader';
 import '../components/CurrencyConverter.css';
 
+import AmountInput from '../components/AmountInput';
+import CurrencySelect from '../components/CurrencySelect';
+import ConvertButton from '../components/ConvertButton';
+
 const CurrencyConverter = () => {
     const [amount, setAmount] = useState('');
     const [currency, setCurrency] = useState('EUR');
@@ -38,32 +42,13 @@ const CurrencyConverter = () => {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-md-6">
-                        <input
-                            type="number"
-                            step="0.01"
-                            min="0.01"
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                            className="form-control"
-                            placeholder="Enter amount"
-                            required
-                        />
+                        <AmountInput value={amount} onChange={setAmount} />
                     </div>
                     <div className="col-md-4">
-                        <select
-                            value={currency}
-                            onChange={(e) => setCurrency(e.target.value)}
-                            className="form-control"
-                        >
-                            <option value="EUR">EUR</option>
-                            <option value="USD">USD</option>
-                            <option value="CHF">CHF</option>
-                        </select>
+                        <CurrencySelect value={currency} onChange={setCurrency} />
                     </div>
                     <div className="col-md-2">
-                        <button type="submit" className="btn btn-primary">
-                            Convert
-                        </button>
+                        <ConvertButton />
                     </div>
                 </div>
             </form>
